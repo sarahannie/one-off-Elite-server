@@ -4,10 +4,15 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 
+
+const corsOptions = {
+    origin: 'https://one-off-elite.vercel.app',
+    methods: 'GET,POST',
+    allowedHeaders: ['Content-Type'],
+}; 
+
 const app = express();
-app.use(cors({
-    origin: '*', 
-}));
+app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
