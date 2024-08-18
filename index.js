@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 app.use(cors({
-    origin: '*', // Replace with your frontend domain
+    origin: 'https://one-off-elite.vercel.app/', // Replace with your frontend domain
 
 }));
 app.use(bodyParser.urlencoded({ extended: true }));
