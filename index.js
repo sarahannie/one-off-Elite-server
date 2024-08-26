@@ -8,11 +8,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Set up CORS with the specified options
-const corsOptions = {
-    origin: '*',
-};
-
-app.use(cors());
+app.use(cors());  // No need to pass the corsOptions since '*' is default
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -63,7 +59,7 @@ const transporter = nodemailer.createTransport({
 
 app.post('/send-email', async (req, res) => {
     const {
-        gname, gmail, phone, address, service, message,
+        gname, gmail, phone, address,
         whereHeard, adequateInsurance, retirementPlan, reasonForInsurance,
         productEducation, retirementChoice, taxPreference, maritalStatus,
         employmentStatus, additionalInfo
@@ -71,7 +67,7 @@ app.post('/send-email', async (req, res) => {
 
     // Save the appointment data to MongoDB
     const newAppointment = new Appointment({
-        gname, gmail, phone, address, service, message,
+        gname, gmail, phone, address,
         whereHeard, adequateInsurance, retirementPlan, reasonForInsurance,
         productEducation, retirementChoice, taxPreference, maritalStatus,
         employmentStatus, additionalInfo
@@ -90,8 +86,6 @@ app.post('/send-email', async (req, res) => {
                 Email: ${gmail}
                 Phone: ${phone}
                 Address: ${address}
-                Service: ${service}
-                Message: ${message}
                 Where Heard: ${whereHeard}
                 Adequate Insurance: ${adequateInsurance}
                 Retirement Plan: ${retirementPlan}
