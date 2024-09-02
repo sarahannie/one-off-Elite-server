@@ -56,6 +56,15 @@ const transporter = nodemailer.createTransport({
         pass: process.env.EMAIL_PASS  // Use the email password from the .env file
     }
 });
+app.get('/appointments', async (req, res) => {
+    try {
+        const appointments = await Appointment.find(); // Retrieve all appointments
+        res.status(200).json(appointments);
+    } catch (error) {
+        console.log('Error fetching appointments:', error);
+        res.status(500).send('Error retrieving appointments');
+    }
+});
 
 app.post('/send-email', async (req, res) => {
     const {
