@@ -115,7 +115,7 @@ app.post('/send-email', async (req, res) => {
                 res.status(500).send('Error sending email');
             } else {
                 console.log('Email sent: ' + info.response);
-                res.status(200).send('Appointment has been successfully booked! We will get in touch soon 😊.');
+                res.status(200);
             }
         });
 
