@@ -37,7 +37,7 @@ const appointmentSchema = new mongoose.Schema({
     productEducation: String,
     retirementChoice: String,
     taxPreference: String,
-    maritalStatus: String,
+    typeofinsurances: String,
     employmentStatus: String,
     additionalInfo: String,
     createdAt: {
@@ -70,7 +70,7 @@ app.post('/send-email', async (req, res) => {
     const {
         gname, gmail, phone, address,
         whereHeard, adequateInsurance, retirementPlan, reasonForInsurance,
-        productEducation, retirementChoice, taxPreference, maritalStatus,
+        productEducation, retirementChoice, taxPreference, typeofinsurances,
         employmentStatus, additionalInfo
     } = req.body;
 
@@ -78,7 +78,7 @@ app.post('/send-email', async (req, res) => {
     const newAppointment = new Appointment({
         gname, gmail, phone, address,
         whereHeard, adequateInsurance, retirementPlan, reasonForInsurance,
-        productEducation, retirementChoice, taxPreference, maritalStatus,
+        productEducation, retirementChoice, taxPreference, typeofinsurances,
         employmentStatus, additionalInfo
     });
 
@@ -102,7 +102,7 @@ app.post('/send-email', async (req, res) => {
                 Product Education: ${productEducation}
                 Retirement Choice: ${retirementChoice}
                 Tax Preference: ${taxPreference}
-                Marital Status: ${maritalStatus}
+                typeofinsurances: ${typeofinsurances}
                 Employment Status: ${employmentStatus}
                 Additional Info: ${additionalInfo}
             `
