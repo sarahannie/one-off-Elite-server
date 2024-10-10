@@ -88,7 +88,7 @@ app.post('/send-email', async (req, res) => {
         // Construct the email content
         const mailOptions = {
             from: gmail,
-            to: 'Oneoffelite@gmail.com', 
+            to: 'sarahndianekwu@gmail.com', 
             subject: 'New Appointment Request',
             text: `
                 Name: ${gname}
